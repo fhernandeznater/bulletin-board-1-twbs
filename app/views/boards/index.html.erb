@@ -6,26 +6,37 @@
 
 <hr>
 
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Add a new board
-</button>
-
-
 <div class="container">
-
   <div class="row">
+    <div class="offset-md-3 col-md-6">
+      <div class="card">
+        <div class="card-header d-flex align-items-center">
 
-    
+          <h1 class="h6">All boards</h1>
+          <!-- Button trigger modal -->
+          <button type="button" class="ms-auto btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#newBoardModal">
+            Add a new board
+          </button>
+        </div>
 
+        <% @list_of_boards.each do |a_board| %>
+          <div class="list-group list-group-flush">
+            <a href="/boards/<%= a_board.id %>" class = "d-flex list-group-item list-group-item-action">
+              <%= a_board.name %>
+              <div class="ms-auto">
+               <i class="fa-solid fa-chevron-right"></i>
+              </div>
+            </a>
+        <% end %>
+
+      </div>
+    </div>
   </div>
-
 </div>
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="newBoardModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -52,7 +63,7 @@
 
 
 
-<div>
+<!--<div>
   <div>
     <h2>Add a new board</h2>
 
@@ -73,11 +84,12 @@
 <hr>
 
 <ul>
-  <% @list_of_boards.each do |a_board| %>
-    <li>
-      <a href="/boards/<%= a_board.id %>">
-        <%= a_board.name %>
-      </a>
+  <%# @list_of_boards.each do |a_board| %>-->
+<!--    <li>
+      <a href="/boards/<%#= a_board.id %>">
+        <%#= a_board.name %>-->
+<!--      </a>
     </li>
-  <% end %>
-</ul>
+  <%# end %>-->
+<!--</ul>
+-->
